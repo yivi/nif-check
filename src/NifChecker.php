@@ -6,7 +6,6 @@ namespace Yivoff\NifCheck;
 
 use function abs;
 use function array_search;
-use function ltrim;
 use function strlen;
 use function strtoupper;
 use function strtr;
@@ -51,27 +50,20 @@ class NifChecker
         }
 
         // We do not test for K-L-M starting documents.
-        if (preg_match('/^[0-9]{7,8}[TRWAGMYFPDXBNJZSQVHLCKE]/', $nif)) {
+        return match (1) {
             // DNI
-            return $this->verifyDni($nif);
-        }
-
-        if (preg_match('/^[XYZ][0-9]{7,8}[TRWAGMYFPDXBNJZSQVHLCKE]/', $nif)) {
+            preg_match('/^[0-9]{7,8}[TRWAGMYFPDXBNJZSQVHLCKE]/', $nif) => $this->verifyDni($nif),
             // NIE
-            return $this->verifyNie($nif);
-        }
-
-        if (preg_match('/^[ABCDEFGHJNPQRSUVW][0-9]{7,8}[JABCDEFGHI]?/', $nif)) {
+            preg_match('/^[XYZ][0-9]{7,8}[TRWAGMYFPDXBNJZSQVHLCKE]/', $nif) => $this->verifyNie($nif),
             // CIF
-            return $this->verifyCif($nif);
-        }
-
-        return false;
+            preg_match('/^[ABCDEFGHJNPQRSUVW][0-9]{7,8}[JABCDEFGHI]?/', $nif) => $this->verifyCif($nif),
+            // unmatched
+            default => false
+        };
     }
 
     private function verifyDni(string $dni): bool
     {
-        $dni     = ltrim($dni, 'KLM');
         $number  = (int) substr($dni, 0, strlen($dni) - 1);
         $control = substr($dni, -1, 1);
 
@@ -95,28 +87,24 @@ class NifChecker
         $providedControl = substr($cif, -1, 1);
         $number          = substr($cif, 1, 7);
 
-        // Sumar los dígitos de las posiciones pares. Suma = A
+        // Suma A. Sumar los dígitos de las posiciones pares.
         $sumA = (int) $number[1] + (int) $number[3] + (int) $number[5];
 
+        // Suma B.
         // Para cada uno de los dígitos de las posiciones impares, multiplicarlo por 2
         // y sumar los dígitos del resultado.
         $sumB = 0;
         foreach ([0, 2, 4, 6] as $digit) {
             $i = (int) $number[$digit] * 2;
-            if ($i < 10) {
-                $sumB += $i;
 
-                continue;
-            }
-
-            $s    = (string) $i;
-            $sumB += (int) $s[0] + (int) $s[1];
+            $sumB += ($i < 10) ? $i : ($i % 10) + 1;
         }
 
         // Sumar A + B = C
         $sumC = $sumA + $sumB;
-        // Tomar sólo el dígito de las unidades de C. Lo llamaremos dígito E.
-        $digitE = (int) substr((string) $sumC, -1, 1);
+
+        // Tomar solo el dígito de las unidades de C. Lo llamaremos dígito E.
+        $digitE = $sumC % 10;
 
         // Si el dígito E es distinto de 0 lo restaremos a 10. D = 10-E.
         // Esta resta nos da D. Si no, si el dígito E es 0 entonces D = 0

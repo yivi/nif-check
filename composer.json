@@ -36,8 +36,9 @@
       "@psalm",
       "@test"
     ],
-    "dev:psalm": "vendor-bin/static/vendor/vimeo/psalm/psalm",
+    "dev:psalm": "vendor-bin/psalm/vendor/vimeo/psalm/psalm",
     "dev:test": "vendor-bin/testing/vendor/phpunit/phpunit/phpunit",
+    "dev:coverage": "XDEBUG_MODE=coverage vendor-bin/testing/vendor/phpunit/phpunit/phpunit --coverage-html coverage.html",
     "dev:test-pretty": "vendor-bin/testing/vendor/phpunit/phpunit/phpunit --testdox"
   }
 }
