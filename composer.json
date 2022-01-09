@@ -1,0 +1,43 @@
+{
+  "name": "yivoff/nif-check",
+  "type": "library",
+  "description": "Tool to verify and generate Spanish NIFs / Herramienta para verificar y generar NIFs de España",
+  "license": "MIT",
+  "require": {
+    "php": ">=8.0"
+  },
+  "require-dev": {
+    "bamarni/composer-bin-plugin": "^1.4",
+    "roave/security-advisories": "dev-master",
+    "symfony/dependency-injection": "^6.0",
+    "symfony/framework-bundle": "^6.0"
+  },
+  "suggest": {
+  },
+  "config": {
+    "allow-plugins": {
+      "bamarni/composer-bin-plugin": true
+    }
+  },
+  "autoload": {
+    "psr-4": {
+      "Yivoff\\NifCheck\\": "src"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "Yivoff\\NifCheck\\Test\\": "tests"
+    }
+  },
+  "scripts": {
+    "dev:cs": "vendor-bin/csfixer/vendor/friendsofphp/php-cs-fixer/php-cs-fixer fix",
+    "dev:preflight": [
+      "@code-style",
+      "@psalm",
+      "@test"
+    ],
+    "dev:psalm": "vendor-bin/static/vendor/vimeo/psalm/psalm",
+    "dev:test": "vendor-bin/testing/vendor/phpunit/phpunit/phpunit",
+    "dev:test-pretty": "vendor-bin/testing/vendor/phpunit/phpunit/phpunit --testdox"
+  }
+}
