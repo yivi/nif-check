@@ -52,9 +52,9 @@ class NifChecker
         // We do not test for K-L-M starting documents.
         return match (1) {
             // DNI
-            preg_match('/^[0-9]{7,8}[TRWAGMYFPDXBNJZSQVHLCKE]/', $nif) => $this->verifyDni($nif),
+            preg_match('/^\d{7,8}[TRWAGMYFPDXBNJZSQVHLCKE]/', $nif) => $this->verifyDni($nif),
             // NIE
-            preg_match('/^[XYZ][0-9]{7,8}[TRWAGMYFPDXBNJZSQVHLCKE]/', $nif) => $this->verifyNie($nif),
+            preg_match('/^[XYZ]\d{7,8}[TRWAGMYFPDXBNJZSQVHLCKE]/', $nif) => $this->verifyNie($nif),
             // CIF
             preg_match('/^[ABCDEFGHJNPQRSUVW][0-9]{7,8}[JABCDEFGHI]?/', $nif) => $this->verifyCif($nif),
             // unmatched
@@ -110,7 +110,7 @@ class NifChecker
         // Esta resta nos da D. Si no, si el dígito E es 0 entonces D = 0
         $expectedControl = 0 === $digitE ? 0 : 10 - $digitE;
 
-        $numericControl = preg_match('/^[0-9]$/', $providedControl) ?
+        $numericControl = preg_match('/^\d$/', $providedControl) ?
             (int) $providedControl
             : array_search($providedControl, $letterControl, true);
 

@@ -1,6 +1,6 @@
 {
   "name": "yivoff/nif-check",
-  "type": "library",
+  "type": "symfony-bundle",
   "description": "Tool to verify and generate Spanish NIFs / Herramienta para verificar y generar NIFs de España",
   "license": "MIT",
   "require": {
@@ -9,11 +9,11 @@
   "require-dev": {
     "bamarni/composer-bin-plugin": "^1.4",
     "roave/security-advisories": "dev-master",
-    "symfony/dependency-injection": "^6.0",
-    "symfony/framework-bundle": "^6.0"
+    "symfony/framework-bundle": "^6.0.2",
+    "symfony/validator": "^6.0.2",
+    "nyholm/symfony-bundle-test": "dev-master"
   },
-  "suggest": {
-  },
+  "suggest": {},
   "config": {
     "allow-plugins": {
       "bamarni/composer-bin-plugin": true
@@ -30,15 +30,15 @@
     }
   },
   "scripts": {
+    "dev:coverage": "XDEBUG_MODE=coverage vendor-bin/testing/vendor/phpunit/phpunit/phpunit --coverage-html coverage.html",
     "dev:cs": "vendor-bin/csfixer/vendor/friendsofphp/php-cs-fixer/php-cs-fixer fix",
     "dev:preflight": [
-      "@code-style",
-      "@psalm",
-      "@test"
+      "@dev:cs",
+      "@dev:psalm",
+      "@dev:test"
     ],
     "dev:psalm": "vendor-bin/psalm/vendor/vimeo/psalm/psalm",
     "dev:test": "vendor-bin/testing/vendor/phpunit/phpunit/phpunit",
-    "dev:coverage": "XDEBUG_MODE=coverage vendor-bin/testing/vendor/phpunit/phpunit/phpunit --coverage-html coverage.html",
     "dev:test-pretty": "vendor-bin/testing/vendor/phpunit/phpunit/phpunit --testdox"
   }
 }

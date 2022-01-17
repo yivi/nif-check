@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Yivoff\NifCheck\Test;
+namespace Yivoff\NifCheck\Test\Unit;
 
 use Generator;
 use PHPUnit\Framework\TestCase;
@@ -20,9 +20,7 @@ class NifCheckerTest extends TestCase
      */
     public function testCheckingDni(string $dni, bool $expectedResult): void
     {
-        $checker = new NifChecker();
-
-        $this->assertSame($expectedResult, $checker->verify($dni));
+        $this->assertSame($expectedResult, (new NifChecker())->verify($dni));
     }
 
     /**
@@ -30,9 +28,7 @@ class NifCheckerTest extends TestCase
      */
     public function testCheckingNie(string $nie, bool $expectedResult): void
     {
-        $checker = new NifChecker();
-
-        $this->assertSame($expectedResult, $checker->verify($nie));
+        $this->assertSame($expectedResult, (new NifChecker())->verify($nie));
     }
 
     /**
@@ -42,7 +38,7 @@ class NifCheckerTest extends TestCase
     {
         $checker = new NifChecker();
 
-        $this->assertSame($expectedResult, $checker->verify($cif));
+        $this->assertSame($expectedResult, (new NifChecker())->verify($cif));
     }
 
     private function provideDni(): Generator

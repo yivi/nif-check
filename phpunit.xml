@@ -23,5 +23,9 @@
         <include>
             <directory suffix=".php">src</directory>
         </include>
+        <exclude>
+            <directory>src/DependencyInjection</directory>
+            <file>src/YivoffNifCheckerBundle.php</file>
+        </exclude>
     </coverage>
 </phpunit>

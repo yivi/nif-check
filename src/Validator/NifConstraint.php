@@ -1,0 +1,14 @@
+<?php
+
+declare(strict_types=1);
+
+namespace Yivoff\NifCheck\Validator;
+
+use Attribute;
+use Symfony\Component\Validator\Constraint;
+
+#[Attribute]
+class NifConstraint extends Constraint
+{
+    public string $message = "The string '{{ nif }}' is not a valid Spanish NIF";
+}
