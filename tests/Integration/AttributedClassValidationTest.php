@@ -65,9 +65,6 @@ class AttributedClassValidationTest extends KernelTestCase
 
         $container =  self::getContainer();
 
-        /** @var ValidatorInterface */
-        $validator = $container->get('test_validator');
-
-        return $validator;
+        return $container->get('test_validator');
     }
 }
