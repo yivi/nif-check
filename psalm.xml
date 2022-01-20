@@ -16,8 +16,8 @@
     <issueHandlers>
         <PropertyNotSetInConstructor>
             <errorLevel type="suppress">
-                <file name="src/Validator/NifConstraint.php"/>
-                <file name="src/Validator/NifConstraintValidator.php"/>
+                <file name="src/Validator/ValidNif.php"/>
+                <file name="src/Validator/ValidNifValidator.php"/>
             </errorLevel>
         </PropertyNotSetInConstructor>
     </issueHandlers>

@@ -11,7 +11,7 @@ use Symfony\Component\Validator\Exception\UnexpectedValueException;
 use Yivoff\NifCheck\NifChecker;
 use function is_string;
 
-class NifConstraintValidator extends ConstraintValidator
+class ValidNifValidator extends ConstraintValidator
 {
     public function __construct(private NifChecker $checker)
     {
@@ -19,8 +19,8 @@ class NifConstraintValidator extends ConstraintValidator
 
     public function validate(mixed $value, Constraint $constraint): void
     {
-        if (!$constraint instanceof NifConstraint) {
-            throw new UnexpectedTypeException($constraint, NifConstraint::class);
+        if (!$constraint instanceof ValidNif) {
+            throw new UnexpectedTypeException($constraint, ValidNif::class);
         }
 
         if (null === $value || '' === $value) {

@@ -8,7 +8,7 @@ use Attribute;
 use Symfony\Component\Validator\Constraint;
 
 #[Attribute]
-class NifConstraint extends Constraint
+class ValidNif extends Constraint
 {
     public string $message = "The string '{{ nif }}' is not a valid Spanish NIF";
 }

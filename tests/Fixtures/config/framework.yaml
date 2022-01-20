@@ -1,0 +1,9 @@
+framework:
+  validation:
+    enabled: true
+    enable_annotations: true
+
+services:
+  test_validator:
+    alias: 'validator'
+    public: true

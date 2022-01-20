@@ -6,7 +6,7 @@ namespace Yivoff\NifCheck\Test\Integration;
 
 use Nyholm\BundleTest\TestKernel;
 use Symfony\Bundle\FrameworkBundle\Test\KernelTestCase;
-use Yivoff\NifCheck\Validator\NifConstraintValidator;
+use Yivoff\NifCheck\Validator\ValidNifValidator;
 use Yivoff\NifCheck\YivoffNifCheckerBundle;
 
 /**
@@ -23,9 +23,9 @@ class ServiceCreationTest extends KernelTestCase
         $container = self::getContainer();
 
         $this->assertTrue($container->has(YivoffNifCheckerBundle::BUNDLE_PREFIX.'.constraint_validator'));
-        $this->assertTrue($container->has(NifConstraintValidator::class));
+        $this->assertTrue($container->has(ValidNifValidator::class));
 
-        $this->assertInstanceOf(NifConstraintValidator::class, $container->get(NifConstraintValidator::class));
+        $this->assertInstanceOf(ValidNifValidator::class, $container->get(ValidNifValidator::class));
     }
 
     protected static function createKernel(array $options = []): TestKernel

@@ -8,7 +8,7 @@ use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\Extension\Extension;
 use Symfony\Component\DependencyInjection\Reference;
 use Yivoff\NifCheck\NifChecker;
-use Yivoff\NifCheck\Validator\NifConstraintValidator;
+use Yivoff\NifCheck\Validator\ValidNifValidator;
 use Yivoff\NifCheck\YivoffNifCheckerBundle;
 
 class YivoffNifCheckerExtension extends Extension
@@ -20,13 +20,13 @@ class YivoffNifCheckerExtension extends Extension
         ;
 
         if (class_exists('Symfony\Component\Validator\Validation')) {
-            $container->register(NifConstraintValidator::class)
+            $container->register(ValidNifValidator::class)
                 ->setArgument(0, new Reference(NifChecker::class))
                 ->addTag('validator.constraint_validator')
                 ->setPublic(false)
         ;
 
-            $container->setAlias(YivoffNifCheckerBundle::BUNDLE_PREFIX.'.constraint_validator', NifConstraintValidator::class)
+            $container->setAlias(YivoffNifCheckerBundle::BUNDLE_PREFIX.'.constraint_validator', ValidNifValidator::class)
                 ->setPublic(true)
         ;
         }
