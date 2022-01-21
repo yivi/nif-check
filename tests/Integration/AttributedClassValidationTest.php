@@ -8,6 +8,7 @@ use Nyholm\BundleTest\TestKernel;
 use Symfony\Bundle\FrameworkBundle\Test\KernelTestCase;
 use Symfony\Component\Validator\Validator\ValidatorInterface;
 use Yivoff\NifCheck\Test\Fixtures\FakeUser;
+use Yivoff\NifCheck\Test\Fixtures\FakeUserEmptyNif;
 use Yivoff\NifCheck\YivoffNifCheckerBundle;
 
 /**
@@ -35,6 +36,28 @@ class AttributedClassValidationTest extends KernelTestCase
         $errors      = $validator->validate($goodNifUser);
 
         $this->assertCount(1, $errors);
+    }
+
+    public function testEmptyNifIsValid()
+    {
+        $validator = $this->getValidator();
+
+        $goodNifUser = new FakeUserEmptyNif('');
+        $errors      = $validator->validate($goodNifUser);
+
+        $this->assertCount(0, $errors);
+
+    }
+
+    public function testEmptyNifIsInvalid()
+    {
+        $validator = $this->getValidator();
+
+        $goodNifUser = new FakeUser('');
+        $errors      = $validator->validate($goodNifUser);
+
+        $this->assertCount(1, $errors);
+
     }
 
     protected static function createKernel(array $options = []): TestKernel
@@ -65,6 +88,6 @@ class AttributedClassValidationTest extends KernelTestCase
 
         $container =  self::getContainer();
 
-        return $container->get('test_validator');
+        return $container->get('validator');
     }
 }
