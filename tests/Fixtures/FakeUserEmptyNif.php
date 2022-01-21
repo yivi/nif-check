@@ -8,11 +8,9 @@ use Yivoff\NifCheck\Validator\ValidNif;
 
 class FakeUserEmptyNif
 {
-
     public function __construct(
         #[ValidNif]
         public string $nif
     ) {
     }
-
 }

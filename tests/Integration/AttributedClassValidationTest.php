@@ -38,7 +38,7 @@ class AttributedClassValidationTest extends KernelTestCase
         $this->assertCount(1, $errors);
     }
 
-    public function testEmptyNifIsValid()
+    public function testEmptyNifIsValid(): void
     {
         $validator = $this->getValidator();
 
@@ -46,10 +46,9 @@ class AttributedClassValidationTest extends KernelTestCase
         $errors      = $validator->validate($goodNifUser);
 
         $this->assertCount(0, $errors);
-
     }
 
-    public function testEmptyNifIsInvalid()
+    public function testEmptyNifIsInvalid(): void
     {
         $validator = $this->getValidator();
 
@@ -57,7 +56,6 @@ class AttributedClassValidationTest extends KernelTestCase
         $errors      = $validator->validate($goodNifUser);
 
         $this->assertCount(1, $errors);
-
     }
 
     protected static function createKernel(array $options = []): TestKernel
