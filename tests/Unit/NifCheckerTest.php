@@ -10,6 +10,7 @@ use Yivoff\NifCheck\NifChecker;
 
 /**
  * @covers \Yivoff\NifCheck\NifChecker
+ * @covers \Yivoff\NifCheck\CifControlDigit
  *
  * @internal
  */
@@ -36,8 +37,6 @@ class NifCheckerTest extends TestCase
      */
     public function testCheckingCif(string $cif, bool $expectedResult): void
     {
-        $checker = new NifChecker();
-
         $this->assertSame($expectedResult, (new NifChecker())->verify($cif));
     }
 
@@ -85,9 +84,6 @@ class NifCheckerTest extends TestCase
     {
         $nie_collection = [
             ['J65869380', true],
-            // 6 5 8 6 9 3 8 ' => 0 ],
-            // 5 + 6 + 3 = 14
-            // 12 + 16 + 18 + 16
             ['Q5105232B', true],
             ['S0292030D', true],
             ['S7536373I', true],
