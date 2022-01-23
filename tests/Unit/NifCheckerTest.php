@@ -9,8 +9,8 @@ use PHPUnit\Framework\TestCase;
 use Yivoff\NifCheck\NifChecker;
 
 /**
- * @covers \Yivoff\NifCheck\NifChecker
  * @covers \Yivoff\NifCheck\CifControlDigit
+ * @covers \Yivoff\NifCheck\NifChecker
  *
  * @internal
  */

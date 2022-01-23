@@ -11,7 +11,8 @@
     "roave/security-advisories": "dev-master",
     "symfony/framework-bundle": "^6.0.2",
     "symfony/validator": "^6.0.2",
-    "nyholm/symfony-bundle-test": "dev-master"
+    "nyholm/symfony-bundle-test": "dev-master",
+    "fakerphp/faker": "^1.17"
   },
   "suggest": {},
   "config": {

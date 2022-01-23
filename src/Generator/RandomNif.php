@@ -10,7 +10,6 @@ use function abs;
 use function random_int;
 use function str_repeat;
 use function str_shuffle;
-use function strlen;
 use function strtr;
 use function substr;
 
@@ -34,7 +33,7 @@ class RandomNif
 
     public function generateNie(): string
     {
-        $prefix     = Constants::VALID_NIE_PREFIX[random_int(0, strlen(Constants::VALID_NIE_PREFIX) - 1)];
+        $prefix     = Constants::VALID_NIE_PREFIX[random_int(0, 2)];
         $digits     = $this->randomDigits(7);
         $partialNie = $prefix.$digits;
 
@@ -46,7 +45,7 @@ class RandomNif
     /** @psalm-param ?string 'A' | 'B' | 'C' | 'D' | 'E' | 'F' | 'G' | 'H' | 'J' | 'N' | 'P' | 'Q' | 'R' | 'S' | 'U' | 'V' | 'W' */
     public function generateCif(?string $prefix = null): string
     {
-        $prefix ??= Constants::VALID_CIF_PREFIX[random_int(0, strlen(Constants::VALID_CIF_PREFIX) - 1)];
+        $prefix ??= Constants::VALID_CIF_PREFIX[random_int(0, 16)];
         $digits = $this->randomDigits(7);
 
         $numericControl = (new CifControlDigit())->calculate($digits);

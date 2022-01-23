@@ -18,6 +18,7 @@
             <errorLevel type="suppress">
                 <file name="src/Validator/ValidNif.php"/>
                 <file name="src/Validator/ValidNifValidator.php"/>
+                <file name="src/FakerProvider/NifProvider.php"/>
             </errorLevel>
         </PropertyNotSetInConstructor>
     </issueHandlers>

@@ -9,8 +9,8 @@ use Yivoff\NifCheck\Generator\RandomNif;
 use Yivoff\NifCheck\NifChecker;
 
 /**
- * @covers  \Yivoff\NifCheck\Generator\RandomNif
  * @covers \Yivoff\NifCheck\CifControlDigit
+ * @covers  \Yivoff\NifCheck\Generator\RandomNif
  * @covers \Yivoff\NifCheck\NifChecker
  *
  * @internal
