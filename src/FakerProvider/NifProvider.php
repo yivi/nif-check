@@ -27,6 +27,11 @@ class NifProvider extends Base
         return $this->nifGenerator->generate();
     }
 
+    public function spanishDni(): string
+    {
+        return $this->nifGenerator->generateDni();
+    }
+
     public function spanishNie(): string
     {
         return $this->nifGenerator->generateNie();
