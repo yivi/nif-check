@@ -40,7 +40,7 @@ class NifCheckerTest extends TestCase
         $this->assertSame($expectedResult, (new NifChecker())->verify($cif));
     }
 
-    private function provideDni(): Generator
+    public function provideDni(): Generator
     {
         $dni_collection = [
             ['50502772Q', true],
@@ -63,7 +63,7 @@ class NifCheckerTest extends TestCase
         }
     }
 
-    private function provideNie(): Generator
+    public function provideNie(): Generator
     {
         $nie_collection = [
             ['X6499149Q', true],
@@ -80,7 +80,7 @@ class NifCheckerTest extends TestCase
         }
     }
 
-    private function provideCif(): Generator
+    public function provideCif(): Generator
     {
         $nie_collection = [
             ['J65869380', true],
