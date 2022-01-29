@@ -33,14 +33,14 @@ class ValidNifValidatorTest extends TestCase
 
     public function testIgnoresBlanksOrNulls(): void
     {
-        $validator     = $this->createValidator(true);
+        $validator = $this->createPassingValidator();
         $validator->validate(null, $this->createMock(ValidNif::class));
     }
 
     public function testValidationOnlyWithStrings(): void
     {
         $nifConstraint = $this->createMock(ValidNif::class);
-        $validator     = $this->createValidator(true);
+        $validator     = $this->createPassingValidator();
 
         $this->expectException(UnexpectedValueException::class);
         $validator->validate(true, $nifConstraint);
@@ -51,26 +51,39 @@ class ValidNifValidatorTest extends TestCase
 
     public function testInvalidStringBuildsViolation(): void
     {
-        $validator = $this->createValidator(false);
+        $validator = $this->createFailingValidator();
         $validator->validate('INVALID_NIF', $this->createMock(ValidNif::class));
     }
 
     public function testValidNifDoesNotBuildViolation(): void
     {
-        $validator = $this->createValidator(true);
+        $validator = $this->createPassingValidator();
         $validator->validate('VALID_NIF', $this->createMock(ValidNif::class));
     }
 
-    private function createValidator(bool $validationSucceeds): ConstraintValidator
+    private function createPassingValidator(): ConstraintValidator
     {
         $executionContextMock = $this->createMock(ExecutionContextInterface::class);
         $executionContextMock
-            ->expects($validationSucceeds ? $this->never() : $this->once())->method('buildViolation');
+            ->expects($this->never())->method('buildViolation');
 
         $checkerMock = $this->createMock(NifChecker::class);
-        $checkerMock->method('verify')->willReturn($validationSucceeds);
+        $checkerMock->method('verify')->willReturn(true);
 
-        $this->assertEquals($validationSucceeds, $checkerMock->verify('abc'));
+        $validator = new ValidNifValidator($checkerMock);
+        $validator->initialize($executionContextMock);
+
+        return $validator;
+    }
+
+    private function createFailingValidator(): ConstraintValidator
+    {
+        $executionContextMock = $this->createMock(ExecutionContextInterface::class);
+        $executionContextMock
+            ->expects($this->once())->method('buildViolation');
+
+        $checkerMock = $this->createMock(NifChecker::class);
+        $checkerMock->method('verify')->willReturn(false);
 
         $validator = new ValidNifValidator($checkerMock);
         $validator->initialize($executionContextMock);
