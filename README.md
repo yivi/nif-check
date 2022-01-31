@@ -5,6 +5,7 @@
 [![Latest Unstable Version](http://poser.pugx.org/yivoff/nif-spain/v/unstable)](https://packagist.org/packages/yivoff/nif-spain)
 [![License](http://poser.pugx.org/yivoff/nif-spain/license)](https://packagist.org/packages/yivoff/nif-spain)
 ![Tests](https://github.com/yivi/CommonMarkBundle/actions/workflows/bundle_tests.yaml/badge.svg)
+[![codecov](https://codecov.io/gh/yivi/spanish-nif/branch/main/graph/badge.svg?token=YRZLN4CAOR)](https://codecov.io/gh/yivi/spanish-nif)
 
 Simple library to check that fiscal identifiers are valid according to Spanish legislation, and to generate valid fiscal
 identifiers.
