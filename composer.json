@@ -1,5 +1,5 @@
 {
-  "name": "yivoff/nif-check",
+  "name": "yivoff/spanish-nif",
   "type": "symfony-bundle",
   "description": "Tool to verify and generate Spanish NIFs / Herramienta para verificar y generar NIFs de España",
   "license": "MIT",
