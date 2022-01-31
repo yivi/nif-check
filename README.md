@@ -1,9 +1,10 @@
 # NIF (DNI/NIE/CIF) checker & generator
 
-[![Latest Stable Version](http://poser.pugx.org/yivoff/nif-spain/v)](https://packagist.org/packages/yivoff/nif-spain)
-[![Total Downloads](http://poser.pugx.org/yivoff/nif-spain/downloads)](https://packagist.org/packages/yivoff/nif-spain)
-[![Latest Unstable Version](http://poser.pugx.org/yivoff/nif-spain/v/unstable)](https://packagist.org/packages/yivoff/nif-spain)
-[![License](http://poser.pugx.org/yivoff/nif-spain/license)](https://packagist.org/packages/yivoff/nif-spain)
+[![Latest Stable Version](http://poser.pugx.org/yivoff/spanish-nif/v)](https://packagist.org/packages/yivoff/spanish-nif)
+[![Total Downloads](http://poser.pugx.org/yivoff/spanish-nif/downloads)](https://packagist.org/packages/yivoff/spanish-nif)
+[![Latest Unstable Version](http://poser.pugx.org/yivoff/spanish-nif/v/unstable)](https://packagist.org/packages/yivoff/spanish-nif)
+[![License](http://poser.pugx.org/yivoff/spanish-nif/license)](https://packagist.org/packages/yivoff/spanish-nif)
+[![PHP Version Require](http://poser.pugx.org/yivoff/spanish-nif/require/php)](https://packagist.org/packages/yivoff/spanish-nif)
 ![Tests](https://github.com/yivi/CommonMarkBundle/actions/workflows/bundle_tests.yaml/badge.svg)
 [![codecov](https://codecov.io/gh/yivi/spanish-nif/branch/main/graph/badge.svg?token=YRZLN4CAOR)](https://codecov.io/gh/yivi/spanish-nif)
 
