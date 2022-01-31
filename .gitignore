@@ -12,6 +12,7 @@
 
 # ignore the locally generated coverage directory.
 coverage.html
+coverage.xml
 
 # Stupid Mac.
 .DS_Store
