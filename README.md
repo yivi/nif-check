@@ -1,10 +1,10 @@
 # NIF (DNI/NIE/CIF) checker & generator
 
+[![PHP Version Require](http://poser.pugx.org/yivoff/spanish-nif/require/php)](https://packagist.org/packages/yivoff/spanish-nif)
 [![Latest Stable Version](http://poser.pugx.org/yivoff/spanish-nif/v)](https://packagist.org/packages/yivoff/spanish-nif)
 [![Total Downloads](http://poser.pugx.org/yivoff/spanish-nif/downloads)](https://packagist.org/packages/yivoff/spanish-nif)
 [![Latest Unstable Version](http://poser.pugx.org/yivoff/spanish-nif/v/unstable)](https://packagist.org/packages/yivoff/spanish-nif)
 [![License](http://poser.pugx.org/yivoff/spanish-nif/license)](https://packagist.org/packages/yivoff/spanish-nif)
-[![PHP Version Require](http://poser.pugx.org/yivoff/spanish-nif/require/php)](https://packagist.org/packages/yivoff/spanish-nif)
 ![Tests](https://github.com/yivi/CommonMarkBundle/actions/workflows/bundle_tests.yaml/badge.svg)
 [![codecov](https://codecov.io/gh/yivi/spanish-nif/branch/main/graph/badge.svg?token=YRZLN4CAOR)](https://codecov.io/gh/yivi/spanish-nif)
 

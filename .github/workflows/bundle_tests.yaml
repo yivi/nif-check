@@ -33,9 +33,10 @@ jobs:
           tools: composer:v2,flex
 
       - name: Download dependencies
+        run: "composer update --prefer-dist"
         env:
           SYMFONY_REQUIRE: ${{ matrix.symfony }}
-        run: "composer update --prefer-dist"
+
 
       - name: install test tools
         run: composer bin all install
